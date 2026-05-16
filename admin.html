@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bilal Electronics – Admin Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#07101c;--sidebar:#0a1628;--card:#0d1f33;--card2:#0f2440;
+  --accent:#00c6ff;--accent2:#f59e0b;--green:#22c55e;--red:#ef4444;
+  --text:#e8edf5;--muted:#6b849e;--border:rgba(0,198,255,0.1);
+  --input:#0a1d30;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;}
+
+/* ── LOGIN ── */
+#loginScreen{
+  position:fixed;inset:0;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;z-index:9999;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,198,255,0.07),transparent 60%),var(--bg);
+}
+.login-box{
+  background:var(--card);border:1px solid var(--border);border-radius:20px;
+  padding:48px 40px;width:100%;max-width:400px;text-align:center;
+  box-shadow:0 32px 80px rgba(0,0,0,0.6);
+}
+.login-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;
+  background:linear-gradient(135deg,#00c6ff,#00e5b0);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
+.login-sub{color:var(--muted);font-size:13px;margin-bottom:32px;}
+.login-box input{
+  width:100%;background:var(--input);border:1px solid var(--border);
+  border-radius:10px;padding:13px 16px;color:var(--text);font-size:15px;
+  font-family:'DM Sans',sans-serif;margin-bottom:14px;outline:none;
+  transition:border-color .25s;
+}
+.login-box input:focus{border-color:var(--accent);}
+.login-btn{
+  width:100%;background:var(--accent);color:#07101c;border:none;
+  border-radius:10px;padding:14px;font-family:'Syne',sans-serif;
+  font-weight:700;font-size:15px;cursor:pointer;letter-spacing:.5px;
+  transition:box-shadow .2s;box-shadow:0 0 24px rgba(0,198,255,0.3);
+}
+.login-btn:hover{box-shadow:0 0 40px rgba(0,198,255,0.5);}
+.login-error{color:var(--red);font-size:13px;margin-top:10px;display:none;}
+
+/* ── LAYOUT ── */
+#app{display:none;min-height:100vh;}
+.layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh;}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  background:var(--sidebar);border-right:1px solid var(--border);
+  padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;
+  display:flex;flex-direction:column;
+}
+.sidebar-logo{
+  padding:24px 24px 20px;border-bottom:1px solid var(--border);
+  font-family:'Syne',sans-serif;font-weight:800;font-size:17px;
+  background:linear-gradient(135deg,#00c6ff,#00e5b0);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.sidebar-logo span{display:block;font-size:11px;color:var(--muted);
+  -webkit-text-fill-color:var(--muted);background:none;letter-spacing:1px;margin-top:2px;font-weight:400;}
+.sidebar-nav{padding:16px 0;flex:1;}
+.nav-item{
+  display:flex;align-items:center;gap:12px;padding:11px 24px;
+  color:var(--muted);font-size:14px;cursor:pointer;
+  transition:all .2s;font-family:'Syne',sans-serif;font-weight:600;
+  border-left:3px solid transparent;letter-spacing:.3px;
+}
+.nav-item:hover{color:var(--text);background:rgba(0,198,255,0.05);}
+.nav-item.active{color:var(--accent);background:rgba(0,198,255,0.08);border-left-color:var(--accent);}
+.nav-icon{font-size:18px;width:22px;text-align:center;}
+.sidebar-footer{padding:20px 24px;border-top:1px solid var(--border);}
+.logout-btn{
+  width:100%;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);
+  color:#ef4444;border-radius:8px;padding:10px;font-family:'Syne',sans-serif;
+  font-weight:600;font-size:13px;cursor:pointer;transition:all .2s;letter-spacing:.5px;
+}
+.logout-btn:hover{background:rgba(239,68,68,0.2);}
+
+/* ── MAIN ── */
+.main{padding:32px;overflow-y:auto;}
+.page{display:none;}
+.page.active{display:block;}
+.page-title{font-family:'Syne',sans-serif;font-weight:800;font-size:26px;margin-bottom:6px;}
+.page-sub{color:var(--muted);font-size:14px;margin-bottom:28px;}
+
+/* ── STATS CARDS ── */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:32px;}
+.stat-card{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:20px;transition:transform .2s,box-shadow .2s;
+}
+.stat-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,0.3);}
+.stat-card-icon{font-size:26px;margin-bottom:12px;}
+.stat-card-val{font-family:'Syne',sans-serif;font-weight:800;font-size:28px;
+  background:linear-gradient(135deg,#00c6ff,#00e5b0);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-card-label{color:var(--muted);font-size:12px;margin-top:4px;letter-spacing:1px;}
+
+/* ── TOOLBAR ── */
+.toolbar{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+.search-box{
+  flex:1;min-width:200px;background:var(--input);border:1px solid var(--border);
+  border-radius:10px;padding:10px 16px;color:var(--text);font-size:14px;
+  font-family:'DM Sans',sans-serif;outline:none;transition:border-color .25s;
+}
+.search-box:focus{border-color:var(--accent);}
+.filter-select{
+  background:var(--input);border:1px solid var(--border);border-radius:10px;
+  padding:10px 14px;color:var(--text);font-size:14px;outline:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+}
+.add-btn{
+  background:var(--accent);color:#07101c;border:none;border-radius:10px;
+  padding:10px 22px;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;
+  cursor:pointer;letter-spacing:.5px;white-space:nowrap;transition:box-shadow .2s;
+  box-shadow:0 0 20px rgba(0,198,255,0.25);
+}
+.add-btn:hover{box-shadow:0 0 32px rgba(0,198,255,0.45);}
+
+/* ── TABLE ── */
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+table{width:100%;border-collapse:collapse;}
+thead{background:rgba(0,198,255,0.05);border-bottom:1px solid var(--border);}
+th{padding:13px 16px;text-align:left;font-family:'Syne',sans-serif;font-weight:700;
+  font-size:12px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+td{padding:14px 16px;border-bottom:1px solid rgba(0,198,255,0.05);font-size:14px;vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(0,198,255,0.03);}
+.td-img{width:48px;height:48px;border-radius:8px;background:var(--card2);
+  display:flex;align-items:center;justify-content:center;font-size:22px;overflow:hidden;flex-shrink:0;}
+.td-img img{width:100%;height:100%;object-fit:cover;}
+.td-name{font-family:'Syne',sans-serif;font-weight:600;font-size:14px;}
+.td-brand{color:var(--muted);font-size:12px;margin-top:2px;}
+.cat-badge{
+  display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;
+  font-family:'Syne',sans-serif;font-weight:700;letter-spacing:.5px;
+}
+.cat-Kitchen{background:rgba(251,146,60,0.15);color:#fb923c;}
+.cat-Home{background:rgba(34,197,94,0.15);color:#22c55e;}
+.cat-Beauty{background:rgba(236,72,153,0.15);color:#ec4899;}
+.cat-Gadgets{background:rgba(0,198,255,0.15);color:#00c6ff;}
+.price-cell{font-family:'Syne',sans-serif;font-weight:700;color:var(--accent2);}
+.action-btns{display:flex;gap:8px;}
+.edit-btn,.del-btn{border:none;border-radius:8px;padding:7px 14px;font-size:12px;
+  font-family:'Syne',sans-serif;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.3px;}
+.edit-btn{background:rgba(0,198,255,0.12);color:var(--accent);}
+.edit-btn:hover{background:rgba(0,198,255,0.25);}
+.del-btn{background:rgba(239,68,68,0.12);color:var(--red);}
+.del-btn:hover{background:rgba(239,68,68,0.25);}
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted);}
+.empty-state span{font-size:48px;display:block;margin-bottom:14px;}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(6px);
+  z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:var(--card);border:1px solid var(--border);border-radius:20px;
+  padding:32px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;
+  box-shadow:0 32px 80px rgba(0,0,0,0.6);
+  animation:modalIn .3s ease;
+}
+@keyframes modalIn{from{opacity:0;transform:scale(.95) translateY(16px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.modal-title{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;margin-bottom:6px;}
+.modal-sub{color:var(--muted);font-size:13px;margin-bottom:24px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-family:'Syne',sans-serif;font-weight:700;
+  font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:7px;}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;background:var(--input);border:1px solid var(--border);
+  border-radius:10px;padding:12px 14px;color:var(--text);font-size:14px;
+  font-family:'DM Sans',sans-serif;outline:none;transition:border-color .25s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);}
+.form-group textarea{resize:vertical;min-height:80px;}
+.form-group select option{background:#0a1628;}
+
+/* Image upload */
+.img-upload-area{
+  border:2px dashed var(--border);border-radius:12px;padding:28px;
+  text-align:center;cursor:pointer;transition:border-color .25s,background .25s;
+  position:relative;overflow:hidden;
+}
+.img-upload-area:hover{border-color:var(--accent);background:rgba(0,198,255,0.04);}
+.img-upload-area input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.img-preview{width:100%;max-height:160px;object-fit:contain;border-radius:8px;display:none;margin-top:10px;}
+.upload-icon{font-size:32px;margin-bottom:8px;}
+.upload-text{color:var(--muted);font-size:13px;}
+.upload-text strong{color:var(--accent);}
+
+.modal-actions{display:flex;gap:12px;margin-top:24px;}
+.save-btn{
+  flex:1;background:var(--accent);color:#07101c;border:none;border-radius:10px;
+  padding:13px;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;
+  cursor:pointer;letter-spacing:.5px;transition:box-shadow .2s;
+  box-shadow:0 0 20px rgba(0,198,255,0.25);
+}
+.save-btn:hover{box-shadow:0 0 36px rgba(0,198,255,0.45);}
+.cancel-btn{
+  background:rgba(255,255,255,0.06);color:var(--muted);border:1px solid var(--border);
+  border-radius:10px;padding:13px 24px;font-family:'Syne',sans-serif;
+  font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;
+}
+.cancel-btn:hover{color:var(--text);background:rgba(255,255,255,0.1);}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--green);color:#fff;padding:12px 24px;border-radius:10px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:14px;z-index:9999;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);box-shadow:0 8px 24px rgba(34,197,94,0.4);
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+.toast.error{background:var(--red);box-shadow:0 8px 24px rgba(239,68,68,0.4);}
+
+/* ── SETTINGS ── */
+.settings-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px;}
+.settings-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;margin-bottom:18px;color:var(--accent);}
+.settings-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);}
+.settings-row:last-child{border-bottom:none;}
+.settings-label{font-size:14px;}
+.settings-val{color:var(--muted);font-size:13px;}
+.view-site-btn{
+  display:inline-flex;align-items:center;gap:8px;background:rgba(0,198,255,0.1);
+  border:1px solid rgba(0,198,255,0.25);color:var(--accent);padding:10px 20px;
+  border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;
+  text-decoration:none;transition:all .2s;letter-spacing:.5px;
+}
+.view-site-btn:hover{background:rgba(0,198,255,0.2);}
+
+/* confirm dialog */
+.confirm-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);z-index:2000;display:none;align-items:center;justify-content:center;}
+.confirm-overlay.open{display:flex;}
+.confirm-box{background:var(--card);border:1px solid rgba(239,68,68,0.3);border-radius:16px;padding:32px;max-width:360px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,0.5);}
+.confirm-box h3{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;margin-bottom:10px;}
+.confirm-box p{color:var(--muted);font-size:14px;margin-bottom:24px;line-height:1.6;}
+.confirm-btns{display:flex;gap:12px;}
+.confirm-yes{flex:1;background:var(--red);color:#fff;border:none;border-radius:10px;padding:12px;font-family:'Syne',sans-serif;font-weight:700;cursor:pointer;font-size:14px;}
+.confirm-no{flex:1;background:rgba(255,255,255,0.07);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:12px;font-family:'Syne',sans-serif;font-weight:700;cursor:pointer;font-size:14px;}
+
+@media(max-width:768px){
+  .layout{grid-template-columns:1fr;}
+  .sidebar{position:fixed;left:-240px;z-index:500;transition:left .3s;height:100vh;}
+  .sidebar.open{left:0;}
+  .main{padding:16px;}
+  .form-row{grid-template-columns:1fr;}
+  .hamburger-top{display:flex!important;}
+}
+.hamburger-top{display:none;align-items:center;gap:12px;padding:16px;background:var(--sidebar);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;}
+.hbtn{background:none;border:none;color:var(--accent);font-size:22px;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">⚡ Bilal Electronics</div>
+    <div class="login-sub">Admin Panel — Secure Login</div>
+    <input type="text" id="loginUser" placeholder="Username" autocomplete="off"/>
+    <input type="password" id="loginPass" placeholder="Password" autocomplete="off"/>
+    <button class="login-btn" onclick="doLogin()">Login to Dashboard</button>
+    <div class="login-error" id="loginError">❌ Wrong username or password</div>
+    <p style="color:var(--muted);font-size:11px;margin-top:20px;">Default: admin / bilal123</p>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-logo">⚡ Bilal Electronics<span>Admin Dashboard</span></div>
+    <nav class="sidebar-nav">
+      <div class="nav-item active" onclick="showPage('dashboard')"><span class="nav-icon">📊</span> Dashboard</div>
+      <div class="nav-item" onclick="showPage('products')"><span class="nav-icon">📦</span> Products</div>
+      <div class="nav-item" onclick="showPage('add')"><span class="nav-icon">➕</span> Add Product</div>
+      <div class="nav-item" onclick="showPage('settings')"><span class="nav-icon">⚙️</span> Settings</div>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="hamburger-top">
+      <button class="hbtn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+      <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:16px;background:linear-gradient(135deg,#00c6ff,#00e5b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Admin Panel</span>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-title">Dashboard</div>
+      <div class="page-sub">Welcome back! Here's your store overview.</div>
+      <div class="stats-row" id="dashStats"></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Brand</th></tr></thead>
+          <tbody id="recentTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="page" id="page-products">
+      <div class="page-title">All Products</div>
+      <div class="page-sub">Manage your product catalogue — edit prices, delete or add new items.</div>
+      <div class="toolbar">
+        <input class="search-box" id="searchBox" placeholder="🔍  Search products..." oninput="renderTable()"/>
+        <select class="filter-select" id="catFilter" onchange="renderTable()">
+          <option value="">All Categories</option>
+          <option>Kitchen</option><option>Home</option><option>Beauty</option><option>Gadgets</option>
+        </select>
+        <button class="add-btn" onclick="showPage('add')">＋ Add Product</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Image</th><th>Product</th><th>Category</th><th>Price</th><th>Actions</th></tr></thead>
+          <tbody id="productsTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ADD / EDIT -->
+    <div class="page" id="page-add">
+      <div class="page-title" id="formTitle">Add New Product</div>
+      <div class="page-sub">Fill in the product details below. All fields marked * are required.</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;max-width:640px;">
+        <input type="hidden" id="editId"/>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Product Name *</label>
+            <input type="text" id="fName" placeholder="e.g. Philips Hair Dryer HP8100"/>
+          </div>
+          <div class="form-group">
+            <label>Brand *</label>
+            <input type="text" id="fBrand" placeholder="e.g. Philips"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Category *</label>
+            <select id="fCat">
+              <option value="">Select Category</option>
+              <option>Kitchen</option><option>Home</option><option>Beauty</option><option>Gadgets</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Price (Rs.) *</label>
+            <input type="number" id="fPrice" placeholder="e.g. 3500"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Sub-Category / Model</label>
+          <input type="text" id="fSub" placeholder="e.g. Hair Dryer, 1800W, 2 Speed Settings"/>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="fDesc" placeholder="Brief product description (optional)"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Product Image</label>
+          <div class="img-upload-area" id="uploadArea">
+            <input type="file" accept="image/*" onchange="handleImg(event)"/>
+            <div class="upload-icon">📷</div>
+            <div class="upload-text"><strong>Click to upload</strong> or drag & drop<br/>JPG, PNG, WEBP — max 2MB</div>
+            <img class="img-preview" id="imgPreview"/>
+          </div>
+          <input type="hidden" id="fImage"/>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:8px;">
+          <button class="save-btn" onclick="saveProduct()">💾 Save Product</button>
+          <button class="cancel-btn" onclick="resetForm();showPage('products')">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="page" id="page-settings">
+      <div class="page-title">Settings</div>
+      <div class="page-sub">Manage your store configuration and data.</div>
+      <div class="settings-card">
+        <h3>🏪 Store Info</h3>
+        <div class="settings-row"><span class="settings-label">Store Name</span><span class="settings-val">Bilal Electronics</span></div>
+        <div class="settings-row"><span class="settings-label">WhatsApp</span><span class="settings-val">+92 300 4133798</span></div>
+        <div class="settings-row"><span class="settings-label">Location</span><span class="settings-val">Shop No. 14, Madina Center, Lahore</span></div>
+      </div>
+      <div class="settings-card">
+        <h3>🔐 Change Password</h3>
+        <div class="form-group"><label>New Password</label><input type="password" id="newPass" placeholder="Enter new password"/></div>
+        <button class="save-btn" style="max-width:200px;" onclick="changePass()">Update Password</button>
+      </div>
+      <div class="settings-card">
+        <h3>📦 Data Management</h3>
+        <div class="settings-row">
+          <div><span class="settings-label">Export all products</span><br/><span class="settings-val" style="font-size:12px;">Download as JSON file</span></div>
+          <button class="edit-btn" onclick="exportData()">⬇ Export</button>
+        </div>
+        <div class="settings-row">
+          <div><span class="settings-label">Import products</span><br/><span class="settings-val" style="font-size:12px;">Upload a JSON file</span></div>
+          <label class="edit-btn" style="cursor:pointer;">⬆ Import<input type="file" accept=".json" style="display:none" onchange="importData(event)"/></label>
+        </div>
+        <div class="settings-row">
+          <div><span class="settings-label" style="color:var(--red);">Delete ALL products</span><br/><span class="settings-val" style="font-size:12px;">This cannot be undone</span></div>
+          <button class="del-btn" onclick="confirmDeleteAll()">🗑 Clear All</button>
+        </div>
+      </div>
+      <div class="settings-card">
+        <h3>🌐 Your Website</h3>
+        <p style="color:var(--muted);font-size:14px;margin-bottom:16px;">Products you add here will appear on your live website automatically after you upload both files to GitHub.</p>
+        <a class="view-site-btn" href="index.html" target="_blank">🔗 Preview Website</a>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /layout -->
+</div><!-- /app -->
+
+<!-- MODAL (quick edit) -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <div class="modal-title">✏️ Edit Product</div>
+    <div class="modal-sub">Update product details below.</div>
+    <input type="hidden" id="mId"/>
+    <div class="form-row">
+      <div class="form-group"><label>Product Name *</label><input type="text" id="mName"/></div>
+      <div class="form-group"><label>Brand</label><input type="text" id="mBrand"/></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Category *</label>
+        <select id="mCat"><option>Kitchen</option><option>Home</option><option>Beauty</option><option>Gadgets</option></select>
+      </div>
+      <div class="form-group"><label>Price (Rs.) *</label><input type="number" id="mPrice"/></div>
+    </div>
+    <div class="form-group"><label>Sub-Category / Model</label><input type="text" id="mSub"/></div>
+    <div class="modal-actions">
+      <button class="save-btn" onclick="saveEdit()">💾 Save Changes</button>
+      <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM DELETE -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <h3>🗑️ Delete Product?</h3>
+    <p id="confirmMsg">Are you sure you want to delete this product? This action cannot be undone.</p>
+    <div class="confirm-btns">
+      <button class="confirm-yes" id="confirmYes">Yes, Delete</button>
+      <button class="confirm-no" onclick="closeConfirm()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const STORAGE_KEY = 'be_products_v1';
+const AUTH_KEY    = 'be_auth_v1';
+const PASS_KEY    = 'be_pass_v1';
+const ICONS = {Kitchen:'🍳',Home:'🏠',Beauty:'💄',Gadgets:'📱'};
+
+/* ── AUTH ── */
+function getPass(){ return localStorage.getItem(PASS_KEY)||'bilal123'; }
+function doLogin(){
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  if(u==='admin' && p===getPass()){
+    sessionStorage.setItem(AUTH_KEY,'1');
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('app').style.display='block';
+    initDashboard();
+  } else {
+    document.getElementById('loginError').style.display='block';
+  }
+}
+document.getElementById('loginPass').addEventListener('keydown',e=>e.key==='Enter'&&doLogin());
+document.getElementById('loginUser').addEventListener('keydown',e=>e.key==='Enter'&&doLogin());
+function logout(){ sessionStorage.removeItem(AUTH_KEY);location.reload(); }
+function changePass(){
+  const v=document.getElementById('newPass').value.trim();
+  if(!v){toast('Enter a new password','error');return;}
+  localStorage.setItem(PASS_KEY,v);
+  document.getElementById('newPass').value='';
+  toast('Password updated!');
+}
+if(sessionStorage.getItem(AUTH_KEY)==='1'){
+  document.getElementById('loginScreen').style.display='none';
+  document.getElementById('app').style.display='block';
+}
+
+/* ── DATA ── */
+function getProducts(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');}catch(e){return[];} }
+function saveProducts(arr){ localStorage.setItem(STORAGE_KEY,JSON.stringify(arr)); }
+
+/* ── PAGES ── */
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>{ if(n.textContent.toLowerCase().includes(id)||
+    (id==='add'&&n.textContent.includes('Add'))||(id==='dashboard'&&n.textContent.includes('Dashboard'))||
+    (id==='settings'&&n.textContent.includes('Settings'))||(id==='products'&&n.textContent.includes('Products'))) n.classList.add('active');});
+  if(id==='dashboard') initDashboard();
+  if(id==='products') renderTable();
+  if(id==='add'){ document.getElementById('formTitle').textContent='Add New Product'; resetForm(); }
+  document.getElementById('sidebar').classList.remove('open');
+}
+
+/* ── DASHBOARD ── */
+function initDashboard(){
+  const p=getProducts();
+  const cats={Kitchen:0,Home:0,Beauty:0,Gadgets:0};
+  p.forEach(x=>{ if(cats[x.category]!==undefined) cats[x.category]++; });
+  document.getElementById('dashStats').innerHTML=`
+    <div class="stat-card"><div class="stat-card-icon">📦</div><div class="stat-card-val">${p.length}</div><div class="stat-card-label">Total Products</div></div>
+    <div class="stat-card"><div class="stat-card-icon">🍳</div><div class="stat-card-val">${cats.Kitchen}</div><div class="stat-card-label">Kitchen Items</div></div>
+    <div class="stat-card"><div class="stat-card-icon">🏠</div><div class="stat-card-val">${cats.Home}</div><div class="stat-card-label">Home Items</div></div>
+    <div class="stat-card"><div class="stat-card-icon">💄</div><div class="stat-card-val">${cats.Beauty}</div><div class="stat-card-label">Beauty Items</div></div>
+    <div class="stat-card"><div class="stat-card-icon">📱</div><div class="stat-card-val">${cats.Gadgets}</div><div class="stat-card-label">Gadgets</div></div>
+  `;
+  const recent=p.slice(-5).reverse();
+  document.getElementById('recentTable').innerHTML = recent.length ? recent.map(p=>`
+    <tr>
+      <td><div style="display:flex;align-items:center;gap:10px;">
+        <div class="td-img">${p.image?`<img src="${p.image}"/>`:(ICONS[p.category]||'📦')}</div>
+        <div><div class="td-name">${p.name}</div><div class="td-brand">${p.brand||''}</div></div>
+      </div></td>
+      <td><span class="cat-badge cat-${p.category}">${p.category}</span></td>
+      <td class="price-cell">Rs. ${Number(p.price).toLocaleString()}</td>
+      <td style="color:var(--muted)">${p.brand||'—'}</td>
+    </tr>`).join('') : `<tr><td colspan="4"><div class="empty-state"><span>📦</span>No products yet. <a href="#" onclick="showPage('add')" style="color:var(--accent)">Add your first product!</a></div></td></tr>`;
+}
+
+/* ── PRODUCTS TABLE ── */
+function renderTable(){
+  const q=(document.getElementById('searchBox')?.value||'').toLowerCase();
+  const cat=document.getElementById('catFilter')?.value||'';
+  let p=getProducts();
+  if(cat) p=p.filter(x=>x.category===cat);
+  if(q) p=p.filter(x=>x.name.toLowerCase().includes(q)||( x.brand&&x.brand.toLowerCase().includes(q)));
+  const tb=document.getElementById('productsTable');
+  if(!p.length){ tb.innerHTML=`<tr><td colspan="5"><div class="empty-state"><span>📦</span>No products found.<br/><a href="#" onclick="showPage('add')" style="color:var(--accent)">Add your first product →</a></div></td></tr>`; return; }
+  tb.innerHTML=p.map(x=>`
+    <tr>
+      <td><div class="td-img">${x.image?`<img src="${x.image}"/>`:(ICONS[x.category]||'📦')}</div></td>
+      <td><div class="td-name">${x.name}</div><div class="td-brand">${x.sub||x.brand||''}</div></td>
+      <td><span class="cat-badge cat-${x.category}">${x.category}</span></td>
+      <td class="price-cell">Rs. ${Number(x.price).toLocaleString()}</td>
+      <td><div class="action-btns">
+        <button class="edit-btn" onclick="openEdit('${x.id}')">✏️ Edit</button>
+        <button class="del-btn" onclick="confirmDelete('${x.id}','${x.name.replace(/'/g,"\\'")}')">🗑</button>
+      </div></td>
+    </tr>`).join('');
+}
+
+/* ── ADD PRODUCT ── */
+function handleImg(e){
+  const file=e.target.files[0]; if(!file) return;
+  if(file.size>2*1024*1024){ toast('Image too large! Max 2MB','error'); return; }
+  const r=new FileReader();
+  r.onload=ev=>{
+    document.getElementById('imgPreview').src=ev.target.result;
+    document.getElementById('imgPreview').style.display='block';
+    document.getElementById('fImage').value=ev.target.result;
+    document.querySelector('.upload-icon').style.display='none';
+    document.querySelector('.upload-text').style.display='none';
+  };
+  r.readAsDataURL(file);
+}
+
+function saveProduct(){
+  const name=document.getElementById('fName').value.trim();
+  const brand=document.getElementById('fBrand').value.trim();
+  const cat=document.getElementById('fCat').value;
+  const price=document.getElementById('fPrice').value;
+  const sub=document.getElementById('fSub').value.trim();
+  const desc=document.getElementById('fDesc').value.trim();
+  const img=document.getElementById('fImage').value;
+  const editId=document.getElementById('editId').value;
+  if(!name||!cat||!price){ toast('Please fill Name, Category & Price','error'); return; }
+  const products=getProducts();
+  if(editId){
+    const idx=products.findIndex(p=>p.id===editId);
+    if(idx>-1) products[idx]={...products[idx],name,brand,category:cat,price:Number(price),sub,desc,image:img||products[idx].image};
+    toast('Product updated! ✅');
+  } else {
+    products.push({id:'p'+Date.now(),name,brand,category:cat,price:Number(price),sub,desc,image:img,createdAt:new Date().toISOString()});
+    toast('Product added! ✅');
+  }
+  saveProducts(products);
+  resetForm();
+  showPage('products');
+}
+
+function resetForm(){
+  ['fName','fBrand','fPrice','fSub','fDesc','fImage','editId'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('fCat').value='';
+  document.getElementById('imgPreview').style.display='none';
+  document.getElementById('imgPreview').src='';
+  const ui=document.querySelector('.upload-icon'); if(ui) ui.style.display='block';
+  const ut=document.querySelector('.upload-text'); if(ut) ut.style.display='block';
+  document.getElementById('formTitle').textContent='Add New Product';
+}
+
+/* ── EDIT MODAL ── */
+function openEdit(id){
+  const p=getProducts().find(x=>x.id===id); if(!p) return;
+  document.getElementById('mId').value=p.id;
+  document.getElementById('mName').value=p.name;
+  document.getElementById('mBrand').value=p.brand||'';
+  document.getElementById('mCat').value=p.category;
+  document.getElementById('mPrice').value=p.price;
+  document.getElementById('mSub').value=p.sub||'';
+  document.getElementById('editModal').classList.add('open');
+}
+function closeModal(){ document.getElementById('editModal').classList.remove('open'); }
+function saveEdit(){
+  const id=document.getElementById('mId').value;
+  const products=getProducts();
+  const idx=products.findIndex(p=>p.id===id);
+  if(idx>-1){
+    products[idx].name=document.getElementById('mName').value.trim();
+    products[idx].brand=document.getElementById('mBrand').value.trim();
+    products[idx].category=document.getElementById('mCat').value;
+    products[idx].price=Number(document.getElementById('mPrice').value);
+    products[idx].sub=document.getElementById('mSub').value.trim();
+  }
+  saveProducts(products);
+  closeModal(); renderTable(); toast('Product updated! ✅');
+}
+
+/* ── DELETE ── */
+let pendingDeleteId=null;
+function confirmDelete(id,name){
+  pendingDeleteId=id;
+  document.getElementById('confirmMsg').textContent=`Are you sure you want to delete "${name}"? This cannot be undone.`;
+  document.getElementById('confirmOverlay').classList.add('open');
+  document.getElementById('confirmYes').onclick=()=>{ deleteProduct(id); closeConfirm(); };
+}
+function confirmDeleteAll(){
+  pendingDeleteId='ALL';
+  document.getElementById('confirmMsg').textContent='This will permanently delete ALL products from your store. Are you sure?';
+  document.getElementById('confirmOverlay').classList.add('open');
+  document.getElementById('confirmYes').onclick=()=>{ saveProducts([]); closeConfirm(); renderTable(); initDashboard(); toast('All products deleted'); };
+}
+function closeConfirm(){ document.getElementById('confirmOverlay').classList.remove('open'); }
+function deleteProduct(id){
+  saveProducts(getProducts().filter(p=>p.id!==id));
+  renderTable(); initDashboard(); toast('Product deleted');
+}
+
+/* ── EXPORT / IMPORT ── */
+function exportData(){
+  const data=JSON.stringify(getProducts(),null,2);
+  const a=document.createElement('a');
+  a.href='data:application/json;charset=utf-8,'+encodeURIComponent(data);
+  a.download='bilal-electronics-products.json';
+  a.click();
+  toast('Products exported! ✅');
+}
+function importData(e){
+  const file=e.target.files[0]; if(!file) return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    try{
+      const arr=JSON.parse(ev.target.result);
+      if(!Array.isArray(arr)) throw new Error();
+      saveProducts(arr); renderTable(); initDashboard();
+      toast(`Imported ${arr.length} products! ✅`);
+    } catch{ toast('Invalid file format','error'); }
+  };
+  r.readAsText(file);
+}
+
+/* ── TOAST ── */
+function toast(msg,type=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.className='toast'+(type?' '+type:'');
+  setTimeout(()=>t.classList.add('show'),10);
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+/* init */
+if(sessionStorage.getItem(AUTH_KEY)==='1') initDashboard();
+</script>
+</body>
+</html>
