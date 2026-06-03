@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Bilal Electronics – Lahore's trusted shop for kitchen appliances, home appliances, beauty parlor electronics and gadgets."/>
-<meta name="keywords" content="electronics shop Lahore, kitchen appliances Lahore, home appliances Lahore, beauty parlor equipment Lahore, gadgets shop Lahore, Bilal Electronics"/>
+<meta name="description" content="Bilal Electronics – Lahore's trusted shop for kitchen appliances, home appliances, beauty parlor electronics and gadgets. Located in Madina Center, Shah Alam Mohalla, Lahore."/>
+<meta name="keywords" content="electronics shop Lahore, kitchen appliances Lahore, home appliances Lahore, beauty parlor equipment Lahore, gadgets shop Lahore, Bilal Electronics, Madina Center Lahore"/>
 <title>Bilal Electronics – Kitchen, Home, Beauty & Gadgets | Lahore</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -15,126 +15,172 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--primary);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
-::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--primary);}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--primary);}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.95);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;background:linear-gradient(135deg,#00c6ff,#00e5b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.95);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:66px;}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:19px;background:linear-gradient(135deg,#00c6ff,#00e5b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px;cursor:pointer;}
 .nav-links{display:flex;gap:28px;list-style:none;}
 .nav-links a{color:var(--muted);font-size:14px;text-decoration:none;font-family:'Syne',sans-serif;font-weight:600;letter-spacing:.5px;transition:color .25s;}
 .nav-links a:hover{color:var(--accent);}
-.nav-cta{background:var(--accent);color:var(--primary);padding:9px 22px;border-radius:8px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:.5px;transition:transform .2s,box-shadow .2s;box-shadow:0 0 20px rgba(0,198,255,0.3);}
+.nav-cta{background:var(--accent);color:var(--primary);padding:9px 20px;border-radius:8px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:.5px;transition:transform .2s,box-shadow .2s;box-shadow:0 0 20px rgba(0,198,255,0.3);}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 30px rgba(0,198,255,0.5);}
 
+/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 6% 60px;position:relative;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,198,255,0.1) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(245,158,11,0.06) 0%,transparent 60%),linear-gradient(180deg,#0a1628 0%,#081420 100%);}
-.grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(0,198,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,198,255,0.04) 1px,transparent 1px);background-size:60px 60px;}
+.grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(0,198,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,198,255,0.04) 1px,transparent 1px);background-size:60px 60px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,198,255,0.08);border:1px solid rgba(0,198,255,0.25);padding:7px 18px;border-radius:50px;font-size:12px;color:var(--accent);letter-spacing:2px;font-family:'Syne',sans-serif;font-weight:600;margin-bottom:28px;position:relative;z-index:1;animation:fadeUp .6s ease both;}
-.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(36px,6vw,78px);line-height:1.05;position:relative;z-index:1;animation:fadeUp .6s .1s ease both;}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(34px,6vw,76px);line-height:1.05;position:relative;z-index:1;animation:fadeUp .6s .1s ease both;}
 .hero h1 span{background:linear-gradient(135deg,#00c6ff 0%,#00e5b0 60%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{max-width:560px;margin:22px auto 0;color:var(--muted);font-size:16px;line-height:1.7;position:relative;z-index:1;animation:fadeUp .6s .2s ease both;}
-.hero-actions{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;animation:fadeUp .6s .3s ease both;}
-.btn-primary{background:var(--accent);color:var(--primary);padding:14px 34px;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:.5px;box-shadow:0 0 30px rgba(0,198,255,0.35);transition:transform .2s,box-shadow .2s;}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(0,198,255,0.55);}
-.btn-whatsapp{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:14px 34px;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:.5px;transition:transform .2s,box-shadow .2s;display:flex;align-items:center;gap:10px;}
-.btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,0.35);}
-.hero-stats{display:flex;gap:48px;margin-top:64px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;animation:fadeUp .6s .4s ease both;}
+.hero-sub{max-width:540px;margin:20px auto 0;color:var(--muted);font-size:16px;line-height:1.7;position:relative;z-index:1;animation:fadeUp .6s .2s ease both;}
+.hero-actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;animation:fadeUp .6s .3s ease both;}
+.btn-primary{background:var(--accent);color:var(--primary);padding:13px 32px;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 0 28px rgba(0,198,255,0.35);transition:transform .2s,box-shadow .2s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 48px rgba(0,198,255,0.55);}
+.btn-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:13px 32px;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-decoration:none;transition:transform .2s,box-shadow .2s;display:flex;align-items:center;gap:9px;}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,0.35);}
+.hero-stats{display:flex;gap:44px;margin-top:60px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;animation:fadeUp .6s .4s ease both;}
 .stat{text-align:center;}
-.stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;background:linear-gradient(135deg,#00c6ff,#00e5b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.stat-label{color:var(--muted);font-size:12px;letter-spacing:1.5px;margin-top:4px;}
+.stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:30px;background:linear-gradient(135deg,#00c6ff,#00e5b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-label{color:var(--muted);font-size:11px;letter-spacing:1.5px;margin-top:4px;}
 
-.brands-ticker{padding:32px 0;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;}
-.brands-track{display:flex;gap:60px;animation:ticker 22s linear infinite;width:max-content;}
-.brand-pill{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;white-space:nowrap;padding:0 10px;}
+/* TICKER */
+.ticker{padding:30px 0;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;}
+.ticker-track{display:flex;gap:56px;animation:ticker 22s linear infinite;width:max-content;}
+.ticker-track:hover{animation-play-state:paused;}
+.brand-pill{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;white-space:nowrap;padding:0 8px;transition:color .3s;cursor:default;}
+.brand-pill:hover{color:var(--accent);}
 
+/* SECTIONS */
 section{padding:80px 6%;}
 .section-tag{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;}
-.section-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(26px,4vw,42px);line-height:1.15;margin-bottom:16px;}
+.section-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(24px,4vw,40px);line-height:1.15;margin-bottom:14px;}
 .section-title span{background:linear-gradient(135deg,#00c6ff,#00e5b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.section-sub{color:var(--muted);font-size:15px;line-height:1.7;max-width:560px;}
+.section-sub{color:var(--muted);font-size:15px;line-height:1.7;max-width:520px;}
 
 /* FILTER TABS */
-.filter-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:32px 0 24px;}
-.tab{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:9px 20px;border-radius:50px;font-family:'Syne',sans-serif;font-weight:600;font-size:13px;cursor:pointer;transition:all .25s;letter-spacing:.5px;}
-.tab:hover,.tab.active{background:var(--accent);color:var(--primary);border-color:var(--accent);box-shadow:0 0 20px rgba(0,198,255,0.3);}
+.filter-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 20px;}
+.tab{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:8px 18px;border-radius:50px;font-family:'Syne',sans-serif;font-weight:600;font-size:13px;cursor:pointer;transition:all .25s;letter-spacing:.5px;}
+.tab:hover,.tab.active{background:var(--accent);color:var(--primary);border-color:var(--accent);box-shadow:0 0 18px rgba(0,198,255,0.3);}
 
 /* PRODUCTS GRID */
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
-.product-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column;}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s;cursor:pointer;}
 .product-card:hover{transform:translateY(-6px);border-color:rgba(0,198,255,0.35);box-shadow:0 20px 50px rgba(0,0,0,0.4);}
-.product-img{width:100%;height:200px;object-fit:cover;background:linear-gradient(135deg,#0d2137,#0a1628);display:flex;align-items:center;justify-content:center;font-size:56px;}
-.product-img img{width:100%;height:100%;object-fit:cover;}
-.product-body{padding:18px;flex:1;display:flex;flex-direction:column;gap:8px;}
-.product-cat{font-size:11px;letter-spacing:2px;color:var(--accent);font-family:'Syne',sans-serif;font-weight:700;text-transform:uppercase;}
-.product-name{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;line-height:1.3;}
-.product-brand{color:var(--muted);font-size:13px;}
-.product-price{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--accent2);margin-top:4px;}
-.product-price span{font-size:13px;color:var(--muted);font-weight:400;font-family:'DM Sans',sans-serif;}
-.product-footer{padding:0 18px 18px;}
-.order-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:11px;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;text-decoration:none;transition:transform .2s,box-shadow .2s;letter-spacing:.5px;}
-.order-btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(37,211,102,0.35);}
+.product-img{width:100%;height:190px;background:linear-gradient(135deg,#0d2137,#0a1628);display:flex;align-items:center;justify-content:center;font-size:54px;position:relative;overflow:hidden;}
+.product-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.stock-badge{position:absolute;top:10px;right:10px;font-size:10px;font-family:'Syne',sans-serif;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.5px;}
+.stock-in{background:rgba(34,197,94,0.2);color:#22c55e;border:1px solid rgba(34,197,94,0.3);}
+.stock-out{background:rgba(239,68,68,0.2);color:#ef4444;border:1px solid rgba(239,68,68,0.3);}
+.stock-limited{background:rgba(245,158,11,0.2);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);}
+.product-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:6px;}
+.product-cat{font-size:10px;letter-spacing:2px;color:var(--accent);font-family:'Syne',sans-serif;font-weight:700;text-transform:uppercase;}
+.product-subcat{font-size:10px;color:var(--muted);letter-spacing:1px;}
+.product-name{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;line-height:1.3;}
+.product-brand{color:var(--muted);font-size:12px;}
+.product-price{font-family:'Syne',sans-serif;font-weight:800;font-size:19px;color:var(--accent2);margin-top:4px;}
+.product-footer{padding:0 16px 16px;display:flex;gap:8px;}
+.view-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:rgba(0,198,255,0.1);border:1px solid rgba(0,198,255,0.2);color:var(--accent);padding:9px;border-radius:8px;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;cursor:pointer;transition:all .2s;letter-spacing:.3px;}
+.view-btn:hover{background:rgba(0,198,255,0.2);}
+.order-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:9px;border-radius:8px;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;text-decoration:none;transition:transform .2s,box-shadow .2s;letter-spacing:.3px;}
+.order-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(37,211,102,0.35);}
+.no-products{text-align:center;padding:60px 20px;color:var(--muted);grid-column:1/-1;}
+.no-products span{font-size:46px;display:block;margin-bottom:14px;}
 
-.no-products{text-align:center;padding:60px 20px;color:var(--muted);font-size:16px;grid-column:1/-1;}
-.no-products span{font-size:48px;display:block;margin-bottom:16px;}
+/* PRODUCT DETAIL MODAL */
+.detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.82);backdrop-filter:blur(10px);z-index:500;display:none;align-items:center;justify-content:center;padding:16px;}
+.detail-overlay.open{display:flex;}
+.detail-modal{background:var(--card);border:1px solid var(--border);border-radius:22px;width:100%;max-width:700px;max-height:92vh;overflow-y:auto;box-shadow:0 40px 100px rgba(0,0,0,0.7);animation:modalIn .35s ease;}
+@keyframes modalIn{from{opacity:0;transform:scale(.94) translateY(20px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.detail-img{width:100%;height:280px;background:linear-gradient(135deg,#0d2137,#081c2e);display:flex;align-items:center;justify-content:center;font-size:80px;border-radius:22px 22px 0 0;position:relative;overflow:hidden;}
+.detail-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:22px 22px 0 0;}
+.detail-close{position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;z-index:10;transition:background .2s;}
+.detail-close:hover{background:rgba(239,68,68,0.6);}
+.detail-body{padding:28px;}
+.detail-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+.detail-cat{font-size:11px;letter-spacing:2px;color:var(--accent);font-family:'Syne',sans-serif;font-weight:700;text-transform:uppercase;}
+.detail-subcat{font-size:11px;color:var(--muted);letter-spacing:1px;}
+.detail-stock{font-size:11px;font-family:'Syne',sans-serif;font-weight:700;padding:3px 10px;border-radius:20px;}
+.detail-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(20px,3vw,28px);line-height:1.2;margin-bottom:8px;}
+.detail-brand{color:var(--muted);font-size:14px;margin-bottom:16px;}
+.detail-price{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;color:var(--accent2);margin-bottom:6px;}
+.detail-price-sub{color:var(--muted);font-size:13px;margin-bottom:20px;}
+.detail-divider{height:1px;background:var(--border);margin:20px 0;}
+.detail-desc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.5px;color:var(--muted);margin-bottom:10px;}
+.detail-desc{color:var(--text);font-size:15px;line-height:1.7;}
+.detail-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;}
+.detail-wa{flex:1;min-width:160px;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:14px;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-decoration:none;transition:transform .2s,box-shadow .2s;letter-spacing:.5px;}
+.detail-wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.4);}
+.detail-call{flex:1;min-width:140px;display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(0,198,255,0.1);border:1px solid rgba(0,198,255,0.25);color:var(--accent);padding:14px;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-decoration:none;transition:all .2s;}
+.detail-call:hover{background:rgba(0,198,255,0.2);}
 
-/* WHY + LOCATION same as before */
+/* WHY */
 .why-section{background:var(--secondary);}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:48px;}
-.why-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:transform .3s;}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:44px;}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .3s;}
 .why-card:hover{transform:translateY(-4px);}
-.why-icon{font-size:30px;}
-.why-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;}
-.why-text{color:var(--muted);font-size:14px;line-height:1.65;}
+.why-icon{font-size:28px;}
+.why-title{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;}
+.why-text{color:var(--muted);font-size:13px;line-height:1.65;}
 
+/* LOCATION */
 .location-section{background:var(--secondary);}
-.location-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:48px;}
-.location-info{display:flex;flex-direction:column;gap:18px;}
-.info-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;}
-.info-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
-.info-label{font-family:'Syne',sans-serif;font-weight:700;font-size:12px;color:var(--accent);letter-spacing:1px;margin-bottom:5px;}
-.info-val{color:var(--text);font-size:15px;line-height:1.6;}
+.location-wrap{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;margin-top:44px;}
+.location-info{display:flex;flex-direction:column;gap:16px;}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;}
+.info-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.info-label{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:5px;}
+.info-val{color:var(--text);font-size:14px;line-height:1.6;}
 .info-val a{color:var(--accent);text-decoration:none;}
-.map-embed{border-radius:16px;overflow:hidden;border:1px solid var(--border);height:360px;}
+.map-embed{border-radius:16px;overflow:hidden;border:1px solid var(--border);height:340px;}
 .map-embed iframe{width:100%;height:100%;border:none;filter:invert(90%) hue-rotate(180deg);}
 
-.cta-banner{background:linear-gradient(135deg,#001f3a,#002b4a);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:80px 6%;position:relative;overflow:hidden;}
+/* CTA */
+.cta-banner{background:linear-gradient(135deg,#001f3a,#002b4a);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:72px 6%;position:relative;overflow:hidden;}
 .cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(0,198,255,0.08),transparent);}
-.cta-banner h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(24px,4vw,42px);margin-bottom:14px;position:relative;}
-.cta-banner p{color:var(--muted);font-size:16px;margin-bottom:36px;position:relative;}
-.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;}
+.cta-banner h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(22px,4vw,40px);margin-bottom:12px;position:relative;}
+.cta-banner p{color:var(--muted);font-size:15px;margin-bottom:32px;position:relative;}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;}
 
-footer{background:#060e1a;border-top:1px solid var(--border);padding:50px 6% 28px;}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:36px;}
-.footer-brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;background:linear-gradient(135deg,#00c6ff,#00e5b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
-.footer-desc{color:var(--muted);font-size:14px;line-height:1.7;max-width:300px;}
-.footer-col h4{font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;color:var(--accent);margin-bottom:16px;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-col ul li a{color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s;}
+/* FOOTER */
+footer{background:#060e1a;border-top:1px solid var(--border);padding:44px 6% 26px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px;margin-bottom:32px;}
+.footer-brand{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;background:linear-gradient(135deg,#00c6ff,#00e5b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;}
+.footer-desc{color:var(--muted);font-size:13px;line-height:1.7;max-width:280px;}
+.footer-col h4{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:14px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-col ul li a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;}
 .footer-col ul li a:hover{color:var(--accent);}
-.footer-bottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer-bottom p{color:var(--muted);font-size:13px;}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-bottom p{color:var(--muted);font-size:12px;}
 .footer-bottom span{color:var(--accent);}
 
-.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:linear-gradient(135deg,#25d366,#128c7e);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,0.5);text-decoration:none;font-size:28px;animation:pulse 2.5s infinite;}
-
-@keyframes pulse{0%,100%{box-shadow:0 8px 28px rgba(37,211,102,0.5);}50%{box-shadow:0 8px 50px rgba(37,211,102,0.8);}}
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:999;background:linear-gradient(135deg,#25d366,#128c7e);width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(37,211,102,0.5);text-decoration:none;font-size:27px;animation:pulse 2.5s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 8px 26px rgba(37,211,102,0.5);}50%{box-shadow:0 8px 48px rgba(37,211,102,0.8);}}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
+
+/* WA SVG */
+.wa-svg{width:18px;height:18px;fill:white;flex-shrink:0;}
 
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none;}
   .location-wrap{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
-  .hero-stats{gap:28px;}
-  .map-embed{height:250px;}
+  .hero-stats{gap:26px;}
+  .map-embed{height:240px;}
+  .detail-img{height:220px;}
+  .detail-actions{flex-direction:column;}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">⚡ Bilal Electronics</div>
+  <div class="nav-logo" onclick="scrollTo(0,0)">⚡ Bilal Electronics</div>
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
     <li><a href="#why">Why Us</a></li>
@@ -143,48 +189,44 @@ footer{background:#060e1a;border-top:1px solid var(--border);padding:50px 6% 28p
   <a class="nav-cta" href="https://wa.me/923004133798" target="_blank">📞 WhatsApp Us</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div><div class="grid-overlay"></div>
+  <div class="hero-bg"></div><div class="grid-lines"></div>
   <div class="hero-badge">⚡ Lahore's Trusted Electronics Store</div>
   <h1>Your One-Stop<br/><span>Electronics Hub</span></h1>
   <p class="hero-sub">Kitchen appliances, home gadgets, beauty electronics & more — all under one roof at Madina Center, Lahore.</p>
   <div class="hero-actions">
     <a class="btn-primary" href="#products">Shop Now</a>
-    <a class="btn-whatsapp" href="https://wa.me/923004133798" target="_blank">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <a class="btn-wa" href="https://wa.me/923004133798" target="_blank">
+      <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Chat on WhatsApp
     </a>
   </div>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num" id="totalProducts">0</div><div class="stat-label">Products</div></div>
-    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Top Brands</div></div>
-    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Categories</div></div>
+    <div class="stat"><div class="stat-num" id="totalCount">0</div><div class="stat-label">Products</div></div>
+    <div class="stat"><div class="stat-num" id="brandCount">10+</div><div class="stat-label">Top Brands</div></div>
+    <div class="stat"><div class="stat-num" id="catCount">4</div><div class="stat-label">Categories</div></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Genuine</div></div>
   </div>
 </section>
 
-<div class="brands-ticker">
-  <div class="brands-track">
-    <span class="brand-pill">Remington</span><span class="brand-pill">Philips</span><span class="brand-pill">Kenwood</span><span class="brand-pill">Panasonic</span><span class="brand-pill">Hitachi</span><span class="brand-pill">RAF</span><span class="brand-pill">Silver Crest</span><span class="brand-pill">Angeleno</span><span class="brand-pill">Daling</span><span class="brand-pill">& Many More</span>
-    <span class="brand-pill">Remington</span><span class="brand-pill">Philips</span><span class="brand-pill">Kenwood</span><span class="brand-pill">Panasonic</span><span class="brand-pill">Hitachi</span><span class="brand-pill">RAF</span><span class="brand-pill">Silver Crest</span><span class="brand-pill">Angeleno</span><span class="brand-pill">Daling</span><span class="brand-pill">& Many More</span>
-  </div>
+<!-- TICKER -->
+<div class="ticker" id="brandTicker">
+  <div class="ticker-track" id="tickerTrack"></div>
 </div>
 
 <!-- PRODUCTS -->
 <section id="products">
   <div class="section-tag">Our Products</div>
   <h2 class="section-title">Shop Our <span>Collection</span></h2>
-  <p class="section-sub">Browse all our products. Click "Order on WhatsApp" to buy instantly.</p>
+  <p class="section-sub">Tap any product to see full details. Click "Order on WhatsApp" to buy instantly.</p>
   <div class="filter-tabs" id="filterTabs">
-    <div class="tab active" onclick="filterProducts('All')">All</div>
-    <div class="tab" onclick="filterProducts('Kitchen')">🍳 Kitchen</div>
-    <div class="tab" onclick="filterProducts('Home')">🏠 Home</div>
-    <div class="tab" onclick="filterProducts('Beauty')">💄 Beauty</div>
-    <div class="tab" onclick="filterProducts('Gadgets')">📱 Gadgets</div>
+    <div class="tab active" onclick="filterProducts('All',this)">All</div>
   </div>
   <div class="products-grid" id="productsGrid"></div>
 </section>
 
+<!-- WHY -->
 <section id="why" class="why-section">
   <div class="section-tag">Why Choose Us</div>
   <h2 class="section-title">Lahore's <span>Most Trusted</span> Store</h2>
@@ -199,103 +241,217 @@ footer{background:#060e1a;border-top:1px solid var(--border);padding:50px 6% 28p
   </div>
 </section>
 
+<!-- LOCATION -->
 <section id="location" class="location-section">
   <div class="section-tag">Find Us</div>
   <h2 class="section-title">Visit Our <span>Store</span></h2>
-  <p class="section-sub">We are open 6 days a week and always happy to help.</p>
+  <p class="section-sub">We are open 6 days a week and always happy to help you.</p>
   <div class="location-wrap">
     <div class="location-info">
       <div class="info-card reveal"><div class="info-icon">📍</div><div><div class="info-label">Address</div><div class="info-val">Shop No. 14, Bilal Electronics<br/>Madina Center, Shah Alam Mohalla<br/>Bela Nawab Sahib Market, Lahore 54000</div></div></div>
       <div class="info-card reveal"><div class="info-icon">📞</div><div><div class="info-label">Phone / WhatsApp</div><div class="info-val"><a href="tel:+923004133798">+92 300 4133798</a></div></div></div>
       <div class="info-card reveal"><div class="info-icon">🕐</div><div><div class="info-label">Business Hours</div><div class="info-val">Monday – Saturday: 9:00 AM – 9:00 PM<br/>Sunday: Closed</div></div></div>
-      <a class="btn-primary reveal" href="https://maps.app.goo.gl/D8ztkCKmeRNemFJF8" target="_blank" style="display:inline-flex;align-items:center;gap:10px;width:fit-content;">🗺️ Get Directions</a>
+      <a class="btn-primary reveal" href="https://maps.app.goo.gl/D8ztkCKmeRNemFJF8" target="_blank" style="display:inline-flex;align-items:center;gap:9px;width:fit-content;">🗺️ Get Directions on Google Maps</a>
     </div>
     <div class="map-embed reveal"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.5!2d74.3436!3d31.5497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b5c41477a77%3A0xaf5717e459a9843f!2sBilal%20Electronics!5e0!3m2!1sen!2s!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>
 </section>
 
+<!-- CTA -->
 <div class="cta-banner">
   <h2>Ready to Shop? ⚡</h2>
   <p>Contact us on WhatsApp for product availability and best prices.</p>
   <div class="cta-actions">
-    <a class="btn-whatsapp" href="https://wa.me/923004133798" target="_blank" style="display:inline-flex;align-items:center;gap:10px;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <a class="btn-wa" href="https://wa.me/923004133798" target="_blank">
+      <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Chat on WhatsApp
     </a>
     <a class="btn-primary" href="tel:+923004133798">📞 Call Now</a>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
-    <div><div class="footer-brand-name">⚡ Bilal Electronics</div><p class="footer-desc">Lahore's trusted destination for kitchen appliances, home electronics, beauty parlor equipment, and the latest gadgets.</p></div>
-    <div class="footer-col"><h4>Categories</h4><ul><li><a href="#products">Kitchen Appliances</a></li><li><a href="#products">Home Appliances</a></li><li><a href="#products">Beauty Electronics</a></li><li><a href="#products">Gadgets</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li><a href="https://wa.me/923004133798" target="_blank">WhatsApp Us</a></li><li><a href="tel:+923004133798">+92 300 4133798</a></li><li><a href="https://maps.app.goo.gl/D8ztkCKmeRNemFJF8" target="_blank">Google Maps</a></li></ul></div>
+    <div><div class="footer-brand">⚡ Bilal Electronics</div><p class="footer-desc">Lahore's trusted destination for kitchen appliances, home electronics, beauty parlor equipment, and the latest gadgets.</p></div>
+    <div class="footer-col"><h4>Categories</h4><ul id="footerCats"></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul>
+      <li><a href="https://wa.me/923004133798" target="_blank">WhatsApp Us</a></li>
+      <li><a href="tel:+923004133798">+92 300 4133798</a></li>
+      <li><a href="https://maps.app.goo.gl/D8ztkCKmeRNemFJF8" target="_blank">Google Maps</a></li>
+      <li><a href="#location">Our Location</a></li>
+    </ul></div>
   </div>
   <div class="footer-bottom"><p>© 2025 Bilal Electronics. Shop No. 14, Madina Center, Lahore.</p><p>Made with <span>♥</span> for Lahore</p></div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/923004133798" target="_blank" title="WhatsApp">
+<a class="wa-float" href="https://wa.me/923004133798" target="_blank" title="Chat on WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<script>
-const STORAGE_KEY = 'be_products_v1';
-const WA = '923004133798';
-const ICONS = {Kitchen:'🍳',Home:'🏠',Beauty:'💄',Gadgets:'📱'};
-let currentFilter = 'All';
+<!-- PRODUCT DETAIL MODAL -->
+<div class="detail-overlay" id="detailOverlay" onclick="closeDetail(event)">
+  <div class="detail-modal" id="detailModal">
+    <div class="detail-img" id="detailImg">
+      <div class="detail-close" onclick="closeDetailDirect()">✕</div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-meta">
+        <span class="detail-cat" id="detailCat"></span>
+        <span style="color:var(--muted)">•</span>
+        <span class="detail-subcat" id="detailSubcat"></span>
+        <span class="detail-stock" id="detailStock"></span>
+      </div>
+      <div class="detail-name" id="detailName"></div>
+      <div class="detail-brand" id="detailBrand"></div>
+      <div class="detail-price" id="detailPrice"></div>
+      <div class="detail-price-sub">per piece • price may vary, confirm on WhatsApp</div>
+      <div class="detail-divider"></div>
+      <div class="detail-desc-title">PRODUCT DETAILS</div>
+      <div class="detail-desc" id="detailDesc"></div>
+      <div class="detail-actions">
+        <a class="detail-wa" id="detailWa" href="#" target="_blank">
+          <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order on WhatsApp
+        </a>
+        <a class="detail-call" href="tel:+923004133798">📞 Call Now</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-function getProducts(){
-  try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]'); }catch(e){ return []; }
+<script>
+const SK='be_products_v1',BRK='be_brands_v1',CKK='be_cats_v1';
+const WA='923004133798';
+const ICONS={Kitchen:'🍳',Home:'🏠',Beauty:'💄',Gadgets:'📱'};
+const DEF_BRANDS=['Remington','Daling','Philips','Kenwood','Panasonic','Hitachi','RAF','Silver Crest','Angeleno'];
+const DEF_CATS=['Kitchen','Home','Beauty','Gadgets'];
+
+const getProducts=()=>{try{return JSON.parse(localStorage.getItem(SK)||'[]');}catch{return[];}};
+const getBrands=()=>{try{const b=JSON.parse(localStorage.getItem(BRK));return b&&b.length?b:DEF_BRANDS;}catch{return DEF_BRANDS;}};
+const getCats=()=>{try{const c=JSON.parse(localStorage.getItem(CKK));return c&&c.length?c:DEF_CATS;}catch{return DEF_CATS;}};
+
+let currentFilter='All';
+
+// INIT
+function init(){
+  buildTicker();
+  buildFilterTabs();
+  buildFooterCats();
+  renderProducts();
+  updateStats();
 }
 
-function filterProducts(cat){
-  currentFilter = cat;
+function buildTicker(){
+  const brands=getBrands();
+  const doubled=[...brands,...brands];
+  document.getElementById('tickerTrack').innerHTML=doubled.map(b=>`<span class="brand-pill">${b}</span>`).join('');
+}
+
+function buildFilterTabs(){
+  const tabs=document.getElementById('filterTabs');
+  const cats=getCats();
+  tabs.innerHTML=`<div class="tab active" onclick="filterProducts('All',this)">All</div>`;
+  cats.forEach(c=>{
+    tabs.innerHTML+=`<div class="tab" onclick="filterProducts('${c}',this)">${ICONS[c]||'📁'} ${c}</div>`;
+  });
+}
+
+function buildFooterCats(){
+  const fc=document.getElementById('footerCats');
+  fc.innerHTML=getCats().map(c=>`<li><a href="#products" onclick="filterProducts('${c}',null)">${c} Appliances</a></li>`).join('');
+}
+
+function updateStats(){
+  const p=getProducts();
+  document.getElementById('totalCount').textContent=p.length||'0';
+  document.getElementById('brandCount').textContent=getBrands().length+'+';
+  document.getElementById('catCount').textContent=getCats().length;
+}
+
+function filterProducts(cat,el){
+  currentFilter=cat;
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  event.target.classList.add('active');
+  if(el) el.classList.add('active');
   renderProducts();
 }
 
 function renderProducts(){
-  const all = getProducts();
-  const filtered = currentFilter==='All' ? all : all.filter(p=>p.category===currentFilter);
-  const grid = document.getElementById('productsGrid');
-  document.getElementById('totalProducts').textContent = all.length;
-
-  if(filtered.length===0){
-    grid.innerHTML = `<div class="no-products"><span>📦</span>No products in this category yet.<br/>Check back soon or <a href="https://wa.me/${WA}" style="color:var(--accent)">ask us on WhatsApp</a>!</div>`;
+  const all=getProducts();
+  const filtered=currentFilter==='All'?all:all.filter(p=>p.category===currentFilter);
+  const grid=document.getElementById('productsGrid');
+  if(!filtered.length){
+    grid.innerHTML=`<div class="no-products"><span>📦</span>No products in this category yet.<br/>Check back soon or <a href="https://wa.me/${WA}" style="color:var(--accent)">ask on WhatsApp</a>!</div>`;
     return;
   }
-
-  grid.innerHTML = filtered.map(p=>{
-    const imgHtml = p.image
-      ? `<div class="product-img"><img src="${p.image}" alt="${p.name}" onerror="this.parentElement.innerHTML='${ICONS[p.category]||'📦'}'"/></div>`
-      : `<div class="product-img">${ICONS[p.category]||'📦'}</div>`;
-    const msg = encodeURIComponent(`Hi! I'm interested in:\n*${p.name}*\nPrice: Rs. ${Number(p.price).toLocaleString()}\nPlease confirm availability.`);
+  grid.innerHTML=filtered.map(p=>{
+    const icon=ICONS[p.category]||'📦';
+    const imgHTML=p.image?`<img src="${p.image}" alt="${p.name}" onerror="this.style.display='none'"/>`:'';
+    const stockClass=p.stock==='Out of Stock'?'stock-out':p.stock==='Limited Stock'?'stock-limited':'stock-in';
+    const stockLabel=p.stock||'In Stock';
+    const msg=encodeURIComponent(`Hi! I'm interested in:\n*${p.name}*\nPrice: Rs. ${Number(p.price).toLocaleString()}\nPlease confirm availability. Thank you!`);
     return `
-    <div class="product-card">
-      ${imgHtml}
+    <div class="product-card" onclick="openDetail('${p.id}')">
+      <div class="product-img">
+        ${icon}${imgHTML}
+        <span class="stock-badge ${stockClass}">${stockLabel}</span>
+      </div>
       <div class="product-body">
-        <div class="product-cat">${p.category}</div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+          <div class="product-cat">${p.category||''}</div>
+          ${p.subcat?`<span style="color:var(--muted);font-size:10px;">• ${p.subcat}</span>`:''}
+        </div>
         <div class="product-name">${p.name}</div>
-        <div class="product-brand">${p.brand||''}</div>
-        <div class="product-price">Rs. ${Number(p.price).toLocaleString()} <span>/ piece</span></div>
+        ${p.brand?`<div class="product-brand">${p.brand}</div>`:''}
+        <div class="product-price">Rs. ${Number(p.price).toLocaleString()}</div>
       </div>
       <div class="product-footer">
-        <a class="order-btn" href="https://wa.me/${WA}?text=${msg}" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Order on WhatsApp
+        <div class="view-btn" onclick="event.stopPropagation();openDetail('${p.id}')">👁 View Details</div>
+        <a class="order-btn" href="https://wa.me/${WA}?text=${msg}" target="_blank" onclick="event.stopPropagation()">
+          <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order
         </a>
       </div>
     </div>`;
   }).join('');
 }
 
-// Scroll reveal
-const obs = new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible')),{threshold:.1});
+// PRODUCT DETAIL
+function openDetail(id){
+  const p=getProducts().find(x=>x.id===id);if(!p)return;
+  const icon=ICONS[p.category]||'📦';
+  const di=document.getElementById('detailImg');
+  di.innerHTML=`<div class="detail-close" onclick="closeDetailDirect()">✕</div>${icon}${p.image?`<img src="${p.image}" alt="${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:22px 22px 0 0;" onerror="this.remove()"/>`:''}`;
+  document.getElementById('detailCat').textContent=p.category||'';
+  document.getElementById('detailSubcat').textContent=p.subcat||'';
+  const stock=p.stock||'In Stock';
+  const stockEl=document.getElementById('detailStock');
+  stockEl.textContent=stock;
+  stockEl.className='detail-stock '+(stock==='Out of Stock'?'stock-out':stock==='Limited Stock'?'stock-limited':'stock-in');
+  document.getElementById('detailName').textContent=p.name;
+  document.getElementById('detailBrand').textContent=p.brand?`Brand: ${p.brand}`:'';
+  document.getElementById('detailPrice').textContent=`Rs. ${Number(p.price).toLocaleString()}`;
+  document.getElementById('detailDesc').textContent=p.desc||'Premium quality product from a trusted brand. Contact us on WhatsApp for complete specifications and availability.';
+  const msg=encodeURIComponent(`Hi! I want to order:\n*${p.name}*\nPrice: Rs. ${Number(p.price).toLocaleString()}\nKindly confirm availability. Thank you!`);
+  document.getElementById('detailWa').href=`https://wa.me/${WA}?text=${msg}`;
+  document.getElementById('detailOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeDetail(e){
+  if(e.target===document.getElementById('detailOverlay')) closeDetailDirect();
+}
+function closeDetailDirect(){
+  document.getElementById('detailOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetailDirect();});
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible')),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-renderProducts();
+init();
 </script>
 </body>
 </html>
